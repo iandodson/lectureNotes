@@ -21,6 +21,38 @@ import org.sireum.justification.natded.prop._
       1 ( ∀((x: T) => (Human(x) __>: Mortal(x))) ) by Premise,
       2 ( ∃((x: T) => Human(x)) ) by Premise,
       
+      //try ExistsE
+      3 Let ( (alias: T) => SubProof(
+        //assume alias is the human in statement 2
+        4 Assume ( Human(alias) ),
+        5 ( Human(alias) __>: Mortal(alias) ) by AllE[T](1),
+        6 ( Mortal(alias) ) by ImplyE(5, 4),
+
+        7 ( ∃((x: T) => Mortal(x)) ) by ExistsI[T](6),
+        //goal: ∃((x: T) => Mortal(x))
+      )),
+
+      8 ( ∃((x: T) => Mortal(x)) ) by ExistsE[T](2, 3)
+      //goal: ∃((x: T) => Mortal(x))
+    )
+  )
+}
+
+@pure def quiz[T](P: T => B @pure, Q: T => B @pure): Unit = {
+  Deduce(
+    (   
+      ∃((x: T) => (P(x) & Q(x)))
+    ) 
+    ⊢  
+    (  ∃((x: T) => Q(x) )  )
+    Proof(
+      1 ( ∃((x: T) => (P(x) & Q(x))) ) by Premise,
+      2 Let ( (a: T) => SubProof(
+        3 Assume ( P(a) & Q(a) ),
+        4 ( Q(a) ) by AndE2(3),
+        5 ( ∃((x: T) => Q(x) ) ) by ExistsI[T](4),
+      )),
+      6 ( ∃((x: T) => Q(x) ) ) by ExistsE[T](1, 2)
     )
   )
 }

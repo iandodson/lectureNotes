@@ -16,6 +16,14 @@ if (num < 0) {
 
 }
 
+//need to prove:
+//num >= 0 in both branches
+//num == numOrig*-1 in if
+//num == numOrig in else
+
 
 //How can we assert that num is the absolute value of the input?
 //(what was the original input?)
+
+assert(num >= 0)
+assert(num == numOrig*-1 | num == numOrig)

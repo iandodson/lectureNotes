@@ -49,14 +49,15 @@ Contract(
 )
 
 
-Requires/preconditions:
+Requires/preconditions: assumptions we need to make
 
 
 
 ///
 
-Ensures/postconditions:
-
+Ensures/postconditions: results the function should have
+    explain valu being returned
+    Res[Z] - returned value
 
 
 /////////////////////////////////
@@ -82,25 +83,23 @@ Four steps:
 
 1) What should be done before calling the function?
 
-
+Prove all its preconditions about what WE are passing as the parameter
 
 
 2) What can the function itself do with the preconditions?
 
-
+List all preconditions as premises
 
 
 3) What must the function do with the postconditions?
 
-
+Prove each postcondition about the value being returned
 
 
 4) What can the calling code do with the postcondition after
     the function returns? 
 
-
-
-
+List each postcondition as a premise using the values passed as parameter and the place the return value is being saved
 
 
 /////////////////////////////////

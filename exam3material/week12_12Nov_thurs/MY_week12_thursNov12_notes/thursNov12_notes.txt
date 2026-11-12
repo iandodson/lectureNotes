@@ -21,10 +21,12 @@ if (base case condition) {
 } else {
 
     //what to do here?
+    //prove the requirements about what I am passing
 
     recursive call
 
     //what can we do here?
+    //Use its postcondition (ensures) as premises
 
     answer = (something)
 }
@@ -60,6 +62,14 @@ while (condition) {
 
 <-- why is this more challenging than if-statements?
 
+//////////////////////////////
+
+loop invariant: describe what happens in a loop in terms of the statements being done
+
+needs to be true before the loop begins
+need to prove the invariant is still true at the end of each iteration
+can use the invariant as a premise at the beginning of each iteration
+can use the invariant as a premise after the end of the loop
 
 //////////////////////////////
 
@@ -78,6 +88,7 @@ Steps to proving correctness of a loop:
 1) Prove the invariant is true before the loop begins
 
     (what is this like in mathematical induction?)
+    base case
 
 
 
@@ -85,7 +96,7 @@ Steps to proving correctness of a loop:
     Prove the invariant still holds at the end of the iteration.
 
     (what is this like in mathematical induction?)
-
+    inductive step
 
 
 /////////////////////////

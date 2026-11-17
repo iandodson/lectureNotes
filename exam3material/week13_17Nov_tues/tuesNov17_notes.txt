@@ -80,6 +80,12 @@ Topics:
 - Programming logic, including:
     - assumes and asserts
     - Subst and Algebra
+
+        m (claim that I'm rewriting)
+        n (LHS == RHS)
+        Subst_<(n, m) rewriting the claim by replacing all LHS with RHS
+        Subst_>(n, m) rewriting the claim by replacing all RHS with LHS
+
     - Verifying programs with:
         - Variable assignments/expressions/updates
         - If/else statements
@@ -111,3 +117,26 @@ When doing programming logic:
 
 
 Now, we will work through practice exam 3
+
+
+Use mathematical induction to prove that if n is a positive integer, then:
+
+    2^1 + 2^2 + ... + 2^n = 2^n+1 - 2
+
+Base case. We must prove our claim holds for the smallest positive integer, n = 1.
+We have that:
+    2^1 = 2
+    2^1+1 - 2 = 2
+The two sides are eqaul, so the base case holds.
+
+Inductive step. We assume that inductive hypothesis, that:
+    2^1 + 2^2 + ... + 2^k = 2^k+1 - 2
+For some fixed positive integer k. We must prove the claim for k+1, so we must show:
+    2^1 + 2^2 + ... + 2^k + 2^k+1 = 2^k+1+1 - 2
+
+We have that:
+    2^1 + 2^2 + ... + 2^k + 2^k+1 = 2^k+1 - 2 + 2^k+1
+                                  = 2*2^k+1 - 2
+                                  = 2^k+2 - 2
+The inductive step holds.
+Thus we have proved our claim for all positive integers.
